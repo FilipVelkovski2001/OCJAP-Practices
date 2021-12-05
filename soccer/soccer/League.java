@@ -30,6 +30,7 @@ public class League {
         team1.teamName = "The Greens";
         team1.playerArray = thePlayers;
         
+        
         // Create team2
         Team team2 = new Team();
         team2.teamName = "The Reds";
@@ -41,47 +42,32 @@ public class League {
         team2.playerArray[2] = new Player();
         team2.playerArray[2].playerName = "Rafael Sabatini";
         
+        /* Practice 6-2. Remove the two for loops below */
+       
+        
+        /* Practice 6-2. Create a Game here */
         Game currGame = new Game();
         currGame.homeTeam = team1;
         currGame.awayTeam = team2;
+        
+        /* Practice 6-2. Create a Goal object here */
         Goal goal1 = new Goal();
         goal1.thePlayer = currGame.homeTeam.playerArray[2];
-        goal1.theTeam = currGame.homeTeam;
-        goal1.theTime = 55;
+        goal1.theTeam = currGame.homeTeam; 
+        goal1.theTime = 55.0;
+        
+        /* Practice 6-2. Put  Goal object in a Goal array and assign Goal array to goals attribute of Game object */
         Goal[] theGoals = {goal1};
         currGame.goals = theGoals;
         
-        System.out.println("Goal scored after " + 
-                currGame.goals[0].theTime + " mins by " +
-                currGame.goals[0].thePlayer.playerName + " of " +
-                currGame.goals[0].theTeam.teamName);
-        
-        /* Practice 7-1. Add code for finding a player within team2 here */
-        for(Player thePlayer: team2.playerArray) {
-        	System.out.println(thePlayer.playerName);
-        	
-        }
-        
-        for (Player thePlayer : team2.playerArray) {
-        	if(thePlayer.playerName.matches(".*Sab.*")) {
-        		System.out.println("Found "+ thePlayer.playerName);
-        		System.out.println("Last name is "+ thePlayer.playerName.split(" ")[1]);
-        		
-        	}
-        	
-        }
         
         
-        for (Player thePlayer : team1.playerArray) {
-        	String name[] = thePlayer.playerName.split(" ");
-        	StringBuilder familyNameFirst = new StringBuilder();
-            familyNameFirst.append(name[1]);
-            familyNameFirst.append(", ");
-            familyNameFirst.append(name[0]);
-            System.out.println(familyNameFirst);
-        	
-        }
+        /* Practice 6-2. Print out the score of the Game */
+        System.out.println("Goal scored after "+ currGame.goals[0].theTime+" mins by "
+        + currGame.goals[0].thePlayer.playerName + " of "+ currGame.goals[0].theTeam.teamName);
         
         
+        
+
     }   
 }
