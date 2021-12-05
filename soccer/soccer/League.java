@@ -5,7 +5,7 @@
  */
 package soccer;
 
-import utility.GameUtils;
+
 
 /**
  *
@@ -17,37 +17,21 @@ public class League {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    	
+    	League theLeague = new League();
 
-        Team[] theTeams = createTeams();
-        Game[] theGames = createGames(theTeams);
+        Team[] theTeams = theLeague.createTeams();
+        Game[] theGames = theLeague.createGames(theTeams);
 
         Game currGame = theGames[0];
-
-       
-        /* Practice 8-2. Start of code that creates a Goal and assigns to Team and a Game */
-       
         
+        currGame.playGame(6);
         
-        /* Practice 8-2. End of code that creates a Goal and assigns to a Team and a Game */
-        
-        /* Practice 8-2. Add code to initialize the array currGame.goals to a random size */
-        int numberOfGoals = (int) (Math.random() * 7);
-        System.out.println(numberOfGoals);
-        Goal[] theGoals = new Goal[numberOfGoals];
-        currGame.goals = theGoals;
-        GameUtils.addGameGoals(currGame);
-        
-        for(Goal currGoal: currGame.goals) {
-        	System.out.println("Goal scored after " + currGoal.theTime 
-        			+ " mins by " + currGoal.thePlayer.playerName +
-        			" of " + currGoal.theTeam.teamName );
-        }
-        // Print out goal details
-       //System.out.println(currGame.getDescription());
+        System.out.println(currGame.getDescription());
 
     }
 
-    public static Team[] createTeams() {
+    public Team[] createTeams() {
 
         Player player1 = new Player();
         player1.playerName = "George Eliot";
@@ -76,14 +60,12 @@ public class League {
         return theTeams;
     }
 
-    public static Game[] createGames(Team[] theTeams) {
+    public Game[] createGames(Team[] theTeams) {
         Game theGame = new Game();
         theGame.homeTeam = theTeams[0];
         theGame.awayTeam = theTeams[1];
         Game[] theGames = {theGame};
         return theGames;
     }
-   
-   
 
 }
